@@ -30,55 +30,21 @@ public class NumberGame {
 					System.out.println("You have selected Easy difficulty! Good luck!");
 					Thread.sleep(1000);
 					chances = 8;
-					int randomNum = rnum.nextInt(100);
-					int userNum = -1;
-					while(chances > 0)
-					{
-						System.out.println("Enter your guess: ");
-						Thread.sleep(1000);
-						try
-						{
-							String input = in.nextLine();
-							userNum = Integer.parseInt(input);
-							chances--;
-							if(userNum == randomNum)
-							{
-								System.out.println("Congrats! You guessed correctly.");
-								break;
-							}
-							else
-							{
-								String greaterOrLess = "";
-								int diff = userNum - randomNum;
-								if(diff < 0)
-								{
-									greaterOrLess = "greater";
-								}
-								else
-								{
-									greaterOrLess = "less";
-								}
-								System.out.println("Incorrect! The number is " + greaterOrLess + " than " + userNum + ".");
-								Thread.sleep(1000);
-							}
-						}
-						catch (NumberFormatException e)
-						{
-							System.out.println("Invalid input, please enter a valid integer number.");
-							Thread.sleep(1000);
-						}
-					}
-					if(chances <= 0 && userNum != randomNum)
-					{
-						System.out.println("You ran out of guesses!");
-					}
+					playGame(in, chances, rnum);
 					break;
 					
 				case(2):
-					System.out.println("Medium");
+					System.out.println("You have selected Medium difficulty! Good luck!");
+					Thread.sleep(1000);
+					chances = 5;
+					playGame(in, chances, rnum);
 					break;
+					
 				case(3):
-					System.out.println("Hard");
+					System.out.println("You have selected Hard difficulty! Good luck!");
+					Thread.sleep(1000);
+					chances = 3;
+					playGame(in, chances, rnum);
 					break;
 				}
 			}
@@ -102,6 +68,51 @@ public class NumberGame {
 		Thread.sleep(1000);
 		System.out.println("I'm thinking of a number between 1 and 100");
 		Thread.sleep(1000);
+	}
+	public static void playGame(Scanner in, int chances, Random rnum) throws InterruptedException
+	{
+		int randomNum = rnum.nextInt(100);
+		int userNum = -1;
+		while(chances > 0)
+		{
+			System.out.println("Enter your guess: ");
+			Thread.sleep(1000);
+			try
+			{
+				String input = in.nextLine();
+				userNum = Integer.parseInt(input);
+				chances--;
+				if(userNum == randomNum)
+				{
+					System.out.println("Congrats! You guessed correctly.");
+					break;
+				}
+				else
+				{
+					String greaterOrLess = "";
+					int diff = userNum - randomNum;
+					if(diff < 0)
+					{
+						greaterOrLess = "greater";
+					}
+					else
+					{
+						greaterOrLess = "less";
+					}
+					System.out.println("Incorrect! The number is " + greaterOrLess + " than " + userNum + ".");
+					Thread.sleep(1000);
+				}
+			}
+			catch (NumberFormatException e)
+			{
+				System.out.println("Invalid input, please enter a valid integer number.");
+				Thread.sleep(1000);
+			}
+		}
+		if(chances <= 0 && userNum != randomNum)
+		{
+			System.out.println("You ran out of guesses!");
+		}
 	}
 
 
