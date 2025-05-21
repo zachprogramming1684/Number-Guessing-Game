@@ -12,4 +12,4 @@ This is a simple number guessing game versus the machine that is designed to be 
 The program itself will provide prompts for how to play.
 
 
-created for: https://roadmap.sh/projects/number-guessing-game
+submitted for: https://roadmap.sh/projects/number-guessing-game
