@@ -7,7 +7,9 @@ This is a simple number guessing game versus the machine that is designed to be 
 3. In your terminal, navigate to where you downloaded the jar file.  
    `cd <your file path>`
 4. Run the application.  
-   ```java -jar numbergame.jar```
+   ```
+   java -jar numbergame.jar
+   ```
 
 The program itself will provide prompts for how to play.
 
